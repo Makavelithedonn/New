@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Cairo', 'Tajawal', system-ui, sans-serif;
+    background-color: #f8f8f7;
+    color: #1a1a19;
+  }
+
+  [dir="rtl"] {
+    font-family: 'Cairo', 'Tajawal', system-ui, sans-serif;
+  }
+
+  [dir="ltr"] {
+    font-family: 'Tajawal', 'Cairo', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .bcare-btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-bcare-navy px-6 py-3 text-white font-semibold transition-all duration-200 hover:bg-bcare-navy-dark hover:shadow-lg active:scale-95;
+  }
+
+  .bcare-btn-orange {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-bcare-orange px-6 py-3 text-white font-semibold transition-all duration-200 hover:bg-bcare-orange-dark hover:shadow-lg active:scale-95;
+  }
+
+  .bcare-btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border-2 border-bcare-navy bg-white px-6 py-3 text-bcare-navy font-semibold transition-all duration-200 hover:bg-bcare-navy hover:text-white active:scale-95;
+  }
+
+  .bcare-input {
+    @apply w-full rounded-xl border border-bcare-gray-border bg-white px-4 py-3 text-bcare-dark outline-none transition-all duration-200 placeholder:text-gray-400 focus:border-bcare-navy focus:ring-2 focus:ring-bcare-navy/20;
+  }
+
+  .bcare-card {
+    @apply rounded-2xl bg-white p-6 shadow-bcare transition-all duration-300 hover:shadow-bcare-lg;
+  }
+
+  .bcare-section-title {
+    @apply text-2xl font-extrabold text-bcare-dark sm:text-3xl md:text-4xl;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #146394;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0d4870;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #146394 0%, #019cde 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Marquee animation for insurance companies */
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: inline-flex;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+[dir="rtl"] .marquee-content {
+  animation: marquee-rtl 30s linear infinite;
+}
+
+@keyframes marquee-rtl {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
